@@ -8,10 +8,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
+import BootstrapVue from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+
+Vue.use(BootstrapVue);
 
 @Component({
   components: {
-    HelloWorld,
+    HelloWorld
   },
 })
 export default class App extends Vue {}
