@@ -38,16 +38,16 @@ export default class Collapse extends Vue {
       .then(res => res.json())
       .then((res: Array<Iitem>) => this.collapseItems = res.sort(updatedComparer));
 
-      this.$root.$on('bv::collapse::state', (collapseId, isJustShown) => {
+      this.$root.$on('bv::collapse::state', (collapseId : number, isJustShown : boolean) => {
         console.log('collapseId:', collapseId)
         console.log('isJustShown:', isJustShown)
       })
-      
   }
 
   updated() {
     console.clear();
   }
+}
 
 </script>
 
