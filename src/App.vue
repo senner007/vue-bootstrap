@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container-fluid">
     <Collapse msg="Git repos by update"/>
   </div>
 </template>
@@ -28,6 +28,6 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 </style>

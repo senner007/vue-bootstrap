@@ -30,14 +30,25 @@ export default class Collapse extends Vue {
   collapseItems: Array<Iitem> = [];
   username : string = "senner007";
 
+
   mounted() {
     fetch(
       "https://api.github.com/users/" + this.username + "/repos?per_page=100"
     )
       .then(res => res.json())
       .then((res: Array<Iitem>) => this.collapseItems = res.sort(updatedComparer));
+
+      this.$root.$on('bv::collapse::state', (collapseId, isJustShown) => {
+        console.log('collapseId:', collapseId)
+        console.log('isJustShown:', isJustShown)
+      })
+      
   }
-}
+
+  updated() {
+    console.clear();
+  }
+
 </script>
 
 <style scoped>

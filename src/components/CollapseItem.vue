@@ -1,7 +1,7 @@
 <template>
   <b-card no-body class="mb-1">
-    <b-card-header header-tag="header" class="p-1" role="tab">
-      <b-button block href="#" v-b-toggle="'accordion-' + itemData.id" variant="info">{{ itemData.name }}</b-button>
+    <b-card-header header-tag="header" class="p-1" role="tab" @click.prevent="openCollapse(itemData.id)">
+      <b-button  block href="#"  variant="info">{{ itemData.name }}</b-button>
     </b-card-header>
     <b-collapse :id="'accordion-' + itemData.id" accordion="my-accordion" role="tabpanel">
       <b-card-body>
@@ -20,6 +20,11 @@ import {Iitem} from '../interfaces/interfaces';
 @Component
 export default class CollapseItem extends Vue {
   @Prop() private itemData!: Iitem;
+
+  openCollapse(id : number) {
+   this.$root.$emit('bv::toggle::collapse', 'accordion-' + id)
+  }
+
 }
 </script>
 
